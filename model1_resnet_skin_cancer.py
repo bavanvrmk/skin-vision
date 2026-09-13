@@ -101,6 +101,11 @@ def train_model(data_dir='data', num_epochs=10, batch_size=32, learning_rate=0.0
             print(f'{phase} Loss: {epoch_loss:.4f} Acc: {epoch_acc:.4f}')
 
     print('Training complete.')
+    
+    # Save the trained model weights
+    save_path = 'resnet50_skin_cancer.pth'
+    torch.save(model.state_dict(), save_path)
+    print(f"Model saved to '{save_path}'")
 
 if __name__ == "__main__":
     train_model(data_dir='data', num_epochs=10, batch_size=32)
